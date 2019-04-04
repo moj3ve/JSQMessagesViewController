@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="l9u-2b-4LK" customClass="JSQMessagesCollectionView">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <collectionViewLayout key="collectionViewLayout" id="dZl-7C-LHR" customClass="JSQMessagesCollectionViewFlowLayout"/>
                     <cells/>
@@ -40,8 +40,8 @@
                 <constraint firstItem="l9u-2b-4LK" firstAttribute="leading" secondItem="Z1S-5w-4IB" secondAttribute="leading" id="MmF-oh-Y75"/>
                 <constraint firstItem="Z1S-5w-4IB" firstAttribute="trailing" secondItem="l9u-2b-4LK" secondAttribute="trailing" id="O9u-TA-A0e"/>
                 <constraint firstItem="Z1S-5w-4IB" firstAttribute="bottom" secondItem="l9u-2b-4LK" secondAttribute="bottom" id="Rai-ZY-EQk"/>
-                <constraint firstItem="l9u-2b-4LK" firstAttribute="top" secondItem="Z1S-5w-4IB" secondAttribute="top" constant="-44" id="dCQ-DM-Wdj"/>
                 <constraint firstItem="BoD-Az-3DM" firstAttribute="leading" secondItem="Z1S-5w-4IB" secondAttribute="leading" id="ts7-8f-0lH"/>
+                <constraint firstItem="l9u-2b-4LK" firstAttribute="top" secondItem="Z1S-5w-4IB" secondAttribute="top" id="ym3-4E-9lR"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <viewLayoutGuide key="safeArea" id="Z1S-5w-4IB"/>
