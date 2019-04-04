@@ -361,54 +361,87 @@
 {
     [self.inputToolbar.contentView.textView resignFirstResponder];
 
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Media messages", nil)
-                                                       delegate:self
-                                              cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
-                                         destructiveButtonTitle:nil
-                                              otherButtonTitles:NSLocalizedString(@"Send photo", nil), NSLocalizedString(@"Send location", nil), NSLocalizedString(@"Send video", nil), NSLocalizedString(@"Send video thumbnail", nil), NSLocalizedString(@"Send audio", nil), nil];
+    UIAlertController *sheet = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Media messages", nil) message:nil preferredStyle: UIAlertControllerStyleActionSheet];
     
-    [sheet showFromToolbar:self.inputToolbar];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self.demoData addPhotoMediaMessage];
+    }];
+    
+    UIAlertAction *sendPhoto = [UIAlertAction actionWithTitle:NSLocalizedString(@"Send photo", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.demoData addPhotoMediaMessage];
+    }];
+    
+    UIAlertAction *sendLocation = [UIAlertAction actionWithTitle:NSLocalizedString(@"Send location", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        __weak UICollectionView *weakView = self.collectionView;
+        
+        [self.demoData addLocationMediaMessageCompletion:^{
+            [weakView reloadData];
+        }];
+    }];
+    
+    UIAlertAction *sendVideo = [UIAlertAction actionWithTitle:NSLocalizedString(@"Send video", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.demoData addVideoMediaMessage];
+    }];
+    
+    UIAlertAction *sendVideoThumbnail = [UIAlertAction actionWithTitle:NSLocalizedString(@"Send video thumbnail", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.demoData addVideoMediaMessageWithThumbnail];
+    }];
+    
+    UIAlertAction *sendAudio = [UIAlertAction actionWithTitle:NSLocalizedString(@"Send audio", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.demoData addAudioMediaMessage];
+    }];
+    
+    [sheet addAction: sendPhoto];
+    [sheet addAction: sendLocation];
+    [sheet addAction: sendVideo];
+    [sheet addAction: sendVideoThumbnail];
+    [sheet addAction: sendAudio];
+    [sheet addAction: cancel];
+    
+    [self presentViewController:sheet animated: YES completion:nil];
+    [self finishSendingMessageAnimated:YES];
+    
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == actionSheet.cancelButtonIndex) {
-        [self.inputToolbar.contentView.textView becomeFirstResponder];
-        return;
-    }
-    
-    switch (buttonIndex) {
-        case 0:
-            [self.demoData addPhotoMediaMessage];
-            break;
-            
-        case 1:
-        {
-            __weak UICollectionView *weakView = self.collectionView;
-            
-            [self.demoData addLocationMediaMessageCompletion:^{
-                [weakView reloadData];
-            }];
-        }
-            break;
-            
-        case 2:
-            [self.demoData addVideoMediaMessage];
-            break;
-            
-        case 3:
-            [self.demoData addVideoMediaMessageWithThumbnail];
-            break;
-            
-        case 4:
-            [self.demoData addAudioMediaMessage];
-            break;
-    }
-    
-    // [JSQSystemSoundPlayer jsq_playMessageSentSound];
-    
-    [self finishSendingMessageAnimated:YES];
-}
+//- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+//{
+//    if (buttonIndex == actionSheet.cancelButtonIndex) {
+//        [self.inputToolbar.contentView.textView becomeFirstResponder];
+//        return;
+//    }
+//    
+//    switch (buttonIndex) {
+//        case 0:
+//            [self.demoData addPhotoMediaMessage];
+//            break;
+//            
+//        case 1:
+//        {
+//            __weak UICollectionView *weakView = self.collectionView;
+//            
+//            [self.demoData addLocationMediaMessageCompletion:^{
+//                [weakView reloadData];
+//            }];
+//        }
+//            break;
+//            
+//        case 2:
+//            [self.demoData addVideoMediaMessage];
+//            break;
+//            
+//        case 3:
+//            [self.demoData addVideoMediaMessageWithThumbnail];
+//            break;
+//            
+//        case 4:
+//            [self.demoData addAudioMediaMessage];
+//            break;
+//    }
+//    
+//    // [JSQSystemSoundPlayer jsq_playMessageSentSound];
+//    
+//    [self finishSendingMessageAnimated:YES];
+//}
 
 
 
