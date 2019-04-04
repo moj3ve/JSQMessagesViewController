@@ -29,18 +29,18 @@
                     <cells/>
                 </collectionView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="BoD-Az-3DM" customClass="JSQMessagesInputToolbar">
-                    <rect key="frame" x="0.0" y="847" width="414" height="49"/>
+                    <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                     <items/>
                 </toolbar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Z1S-5w-4IB" firstAttribute="trailing" secondItem="BoD-Az-3DM" secondAttribute="trailing" id="7xc-Ha-asg"/>
+                <constraint firstItem="BoD-Az-3DM" firstAttribute="bottom" secondItem="Z1S-5w-4IB" secondAttribute="bottom" id="9Ij-x3-aiq"/>
                 <constraint firstItem="l9u-2b-4LK" firstAttribute="leading" secondItem="Z1S-5w-4IB" secondAttribute="leading" id="MmF-oh-Y75"/>
                 <constraint firstItem="Z1S-5w-4IB" firstAttribute="trailing" secondItem="l9u-2b-4LK" secondAttribute="trailing" id="O9u-TA-A0e"/>
                 <constraint firstAttribute="bottom" secondItem="l9u-2b-4LK" secondAttribute="bottom" id="Re7-WW-UmS"/>
                 <constraint firstItem="l9u-2b-4LK" firstAttribute="top" secondItem="Z1S-5w-4IB" secondAttribute="top" constant="-44" id="dCQ-DM-Wdj"/>
-                <constraint firstItem="Z1S-5w-4IB" firstAttribute="bottom" secondItem="BoD-Az-3DM" secondAttribute="bottom" constant="-34" id="rHs-6q-NX4"/>
                 <constraint firstItem="BoD-Az-3DM" firstAttribute="leading" secondItem="Z1S-5w-4IB" secondAttribute="leading" id="ts7-8f-0lH"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
